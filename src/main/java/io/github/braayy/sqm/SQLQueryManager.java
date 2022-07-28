@@ -3,17 +3,18 @@ package io.github.braayy.sqm;
 import io.github.braayy.sqm.exception.SQMException;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 
 public final class SQLQueryManager {
 
-    private static final Map<String, String> queryMap = new HashMap<>();
+    private static Map<String, String> queryMap;
 
     public static void load(@NotNull String queriesFolder) throws SQMException {
         Map<String, String> loadedQueryMap = SQLQueryLoader.loadQueries(queriesFolder);
-        queryMap.putAll(loadedQueryMap);
+
+        queryMap = Collections.unmodifiableMap(loadedQueryMap);
     }
 
     public static @NotNull String query(@NotNull String name) {
