@@ -4,8 +4,6 @@ import io.github.braayy.sqm.SQLQueryManager;
 import io.github.braayy.sqm.exception.SQMException;
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
-
 import static io.github.braayy.sqm.SQLQueryManager.query;
 import static org.junit.jupiter.api.Assertions.*;
 
